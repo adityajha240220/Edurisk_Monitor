@@ -17,7 +17,7 @@ import {
   downloadUpload,
 } from "../../services/uploadService";
 import { getCMSSettings, triggerCMSSync } from "../../services/cmsService";
-import { getValidationRules, updateValidationRules } from "../../services/validationService";
+import { getValidationRules, updateValidationRule } from "../../services/validationService";
 
 const DataUploadManagement = () => {
   const [activeTab, setActiveTab] = useState("upload");
@@ -136,7 +136,7 @@ const DataUploadManagement = () => {
   // Update validation rules
   const handleValidationRulesUpdate = async (rules) => {
     try {
-      await updateValidationRules("default", rules);
+      await updateValidationRule("default", rules);
       await fetchValidationRules();
       alert("Validation rules updated successfully!");
     } catch (err) {

@@ -6,7 +6,7 @@ export const getValidationRules = async () => {
   return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
-export const updateValidationRules = async (id, rules) => {
+export const updateValidationRule = async (id, rules) => {
   await setDoc(doc(db, "validationRules", id), rules, { merge: true });
   return { success: true };
 };
